@@ -2,7 +2,6 @@ C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\bin\Debug\CodeEditorN
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\bin\Debug\CodeEditorNet.Lua.pdb
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\bin\Debug\ScintillaNET.dll
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\bin\Debug\ScintillaNET.xml
-C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csprojResolveAssemblyReference.cache
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csproj.GenerateResource.Cache
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csproj.CoreCompileInputs.cache
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.dll
@@ -16,3 +15,4 @@ C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\Co
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csproj.GenerateResource.Cache
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.dll
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.pdb
+C:\Users\RenAr\Documents\Porgram\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csprojResolveAssemblyReference.cache

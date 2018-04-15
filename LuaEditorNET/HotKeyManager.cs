@@ -18,8 +18,8 @@ namespace CodeEditorNet.Lua
         {
             form.KeyPreview = true;
 
-            form.KeyDown += (object sender, KeyEventArgs e)=> {
-                if (IsHotkey(e, key, ctrl, shift, alt))
+            form.KeyDown +=(obj , args)=> {
+                if (IsHotkey(args, key, ctrl, shift, alt))
                 {
                     function();
                 }
