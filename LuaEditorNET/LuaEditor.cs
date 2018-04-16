@@ -343,6 +343,8 @@ namespace CodeEditorNet.Lua
             }
         }
 
+
+        Keys[] _keysInUse = new Keys[] { Keys.Z, Keys.Y, Keys.C, Keys.X, Keys.V };
         private void InitHotkeys()
         {
             // register the hotkeys with the form
@@ -361,7 +363,7 @@ namespace CodeEditorNet.Lua
             for (int i = 65; i <= 90; i++)
             {
                 Keys key = (Keys)i;
-                if (key != Keys.Z && key != Keys.Y)
+                if (!_keysInUse.Contains(key))
                 {
                     ClearCmdKey(Keys.Control | (Keys)i);
                 }
@@ -453,19 +455,19 @@ namespace CodeEditorNet.Lua
 
         private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if (HotKeyManager.IsHotkey(e, Keys.Enter))
-            {
-                SearchManager.Find(true, false);
-            }
-            if (HotKeyManager.IsHotkey(e, Keys.Enter, true) || HotKeyManager.IsHotkey(e, Keys.Enter, false, true))
-            {
-                SearchManager.Find(false, false);
-            }
+            //if (HotKeyManager.IsHotkey(e, Keys.Enter))
+            //{
+            //    SearchManager.Find(true, false);
+            //}
+            //if (HotKeyManager.IsHotkey(e, Keys.Enter, true) || HotKeyManager.IsHotkey(e, Keys.Enter, false, true))
+            //{
+            //    SearchManager.Find(false, false);
+            //}
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            SearchManager.Find(true, true);
+            //SearchManager.Find(true, true);
         }
 
         //private void BtnCloseSearch_Click(object sender, EventArgs e)
@@ -475,12 +477,12 @@ namespace CodeEditorNet.Lua
 
         private void BtnNextSearch_Click(object sender, EventArgs e)
         {
-            SearchManager.Find(true, false);
+            //SearchManager.Find(true, false);
         }
 
         private void BtnPrevSearch_Click(object sender, EventArgs e)
         {
-            SearchManager.Find(false, false);
+            //SearchManager.Find(false, false);
         }
     }
 }

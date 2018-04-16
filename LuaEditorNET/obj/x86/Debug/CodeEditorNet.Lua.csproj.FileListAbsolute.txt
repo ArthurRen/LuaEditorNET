@@ -1,0 +1,3 @@
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.csprojResolveAssemblyReference.cache
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.LuaEditor.resources
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.csproj.GenerateResource.Cache
