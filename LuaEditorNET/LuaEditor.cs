@@ -344,7 +344,7 @@ namespace CodeEditorNet.Lua
         }
 
 
-        Keys[] _keysInUse = new Keys[] { Keys.Z, Keys.Y, Keys.C, Keys.X, Keys.V };
+        Keys[] _keysInUse = new Keys[] { Keys.Z, Keys.Y, Keys.C, Keys.X, Keys.V, Keys.A };
         private void InitHotkeys()
         {
             // register the hotkeys with the form
