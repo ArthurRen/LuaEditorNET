@@ -382,7 +382,8 @@ namespace CodeEditorNet.Lua
         //    }
         //}
 
-        private void Lowercase()
+        #region upper & lower
+        public void Lowercase()
         {
 
             // save the selection
@@ -396,7 +397,7 @@ namespace CodeEditorNet.Lua
             SetSelection(start, end);
         }
 
-        private void Uppercase()
+        public void Uppercase()
         {
 
             // save the selection
@@ -409,7 +410,8 @@ namespace CodeEditorNet.Lua
             // preserve the original selection
             SetSelection(start, end);
         }
-
+        #endregion
+        
         //bool SearchIsOpen = false;
         //private void OpenSearch()
         //{
@@ -440,49 +442,5 @@ namespace CodeEditorNet.Lua
         //    wordWrapItem.Checked = !wordWrapItem.Checked;
         //    WrapMode = wordWrapItem.Checked ? WrapMode.Word : WrapMode.None;
         //}
-
-        public void InvokeIfNeeded(Action action)
-        {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(action);
-            }
-            else
-            {
-                action.Invoke();
-            }
-        }
-
-        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (HotKeyManager.IsHotkey(e, Keys.Enter))
-            //{
-            //    SearchManager.Find(true, false);
-            //}
-            //if (HotKeyManager.IsHotkey(e, Keys.Enter, true) || HotKeyManager.IsHotkey(e, Keys.Enter, false, true))
-            //{
-            //    SearchManager.Find(false, false);
-            //}
-        }
-
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
-        {
-            //SearchManager.Find(true, true);
-        }
-
-        //private void BtnCloseSearch_Click(object sender, EventArgs e)
-        //{
-        //    CloseSearch();
-        //}
-
-        private void BtnNextSearch_Click(object sender, EventArgs e)
-        {
-            //SearchManager.Find(true, false);
-        }
-
-        private void BtnPrevSearch_Click(object sender, EventArgs e)
-        {
-            //SearchManager.Find(false, false);
-        }
     }
 }
