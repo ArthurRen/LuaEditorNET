@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
-            // 
-            // importFileDialog
-            // 
-            this.importFileDialog.FileName = "openFileDialog1";
-            this.importFileDialog.Filter = "*.所有文件|*.*";
             // 
             // LuaEditor
             // 
-            this.Name = "LuaEditor";
             this.Size = new System.Drawing.Size(668, 541);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog importFileDialog;
     }
 }

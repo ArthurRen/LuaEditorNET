@@ -99,9 +99,15 @@ namespace CodeEditorNet.Lua
             }
         }
 
+
+        private SearchManager _searchManager = null;
+        private ReplaceManager _replaceManager = null;
+
         public LuaEditor()
         {
             InitializeComponent();
+            _searchManager = new SearchManager(this);
+            _replaceManager = new ReplaceManager(this);
         }
 
         protected override void OnHandleCreated(EventArgs e)
@@ -135,13 +141,15 @@ namespace CodeEditorNet.Lua
         {
             WrapMode = WrapMode.None;
             IndentationGuides = IndentView.None;
+            MultipleSelection = true;
         }
 
-        string alphaChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        string numericChars = "0123456789";
+        private static readonly string alphaChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static readonly string numericChars = "0123456789";
         private void InitStyle()
         {
             //Colors
+            SetProperty("SCI_SETCODEPAGE", "SC_CP_UTF8");
             CaretForeColor = Color.White; //color of cursor
             SetSelectionBackColor(true, SelectionBackColor);
             SetSelectionForeColor(true, SelectionForeColor);
@@ -162,31 +170,62 @@ namespace CodeEditorNet.Lua
             Styles[Style.Lua.Preprocessor].ForeColor = IntToColor(0x8AAFEE);
             Styles[Style.Lua.Operator].ForeColor = Color.Gray;
 
-            Styles[Style.Lua.Word].ForeColor = IntToColor(0x007ACC);
-            Styles[Style.Lua.Word2].ForeColor = Color.Gray;
-            Styles[Style.Lua.Word3].ForeColor = Color.Violet;
-            Styles[Style.Lua.Word4].ForeColor = Color.Orange; 
+            Styles[Style.Lua.Word].BackColor = Color.Green;
+            Styles[Style.Lua.Word2].ForeColor = IntToColor(0x007ACC);
+            Styles[Style.Lua.Word3].ForeColor = Color.Gray;
+            Styles[Style.Lua.Word4].ForeColor = Color.Violet;
+            Styles[Style.Lua.Word5].ForeColor = Color.Orange; 
             //Styles[Style.Lua.Word5].ForeColor = Color.Black;
             //Styles[Style.Lua.Word6].ForeColor = IntToColor(0xF98906);
             //Styles[Style.Lua.Word7].ForeColor = Color.Black;
             //Styles[Style.Lua.Word8].ForeColor = IntToColor(0xF98906);
             Lexer = Lexer.Lua;
             WordChars = alphaChars + numericChars;
-            // Keywords
-            SetKeywords(0, "and break do else elseif end for function if in local nil not or repeat return then until while" + " false true" + " goto");
-            // Basic Functions
-            SetKeywords(1, "assert collectgarbage dofile error _G getmetatable ipairs loadfile next pairs pcall print rawequal rawget rawset setmetatable tonumber tostring type _VERSION xpcall table math coroutine io os debug getfenv gcinfo load loadlib loadstring require select setfenv unpack _LOADED LUA_PATH _REQUIREDNAME package rawlen package bit32 utf8 _ENV");
-            // String Manipulation & Mathematical
-            SetKeywords(2, "string.byte string.char string.dump string.find string.format string.gsub string.len string.lower string.rep string.sub string.upper table.concat table.insert table.remove table.sort math.abs math.acos math.asin math.atan math.atan2 math.ceil math.cos math.deg math.exp math.floor math.frexp math.ldexp math.log math.max math.min math.pi math.pow math.rad math.random math.randomseed math.sin math.sqrt math.tan string.gfind string.gmatch string.match string.reverse string.pack string.packsize string.unpack table.foreach table.foreachi table.getn table.setn table.maxn table.pack table.unpack table.move math.cosh math.fmod math.huge math.log10 math.modf math.mod math.sinh math.tanh math.maxinteger math.mininteger math.tointeger math.type math.ult" + " bit32.arshift bit32.band bit32.bnot bit32.bor bit32.btest bit32.bxor bit32.extract bit32.replace bit32.lrotate bit32.lshift bit32.rrotate bit32.rshift" + " utf8.char utf8.charpattern utf8.codes utf8.codepoint utf8.len utf8.offset");
-            // Input and Output Facilities and System Facilities
-            SetKeywords(3, "coroutine.create coroutine.resume coroutine.status coroutine.wrap coroutine.yield io.close io.flush io.input io.lines io.open io.output io.read io.tmpfile io.type io.write io.stdin io.stdout io.stderr os.clock os.date os.difftime os.execute os.exit os.getenv os.remove os.rename os.setlocale os.time os.tmpname" + " coroutine.isyieldable coroutine.running io.popen module package.loaders package.seeall package.config package.searchers package.searchpath require package.cpath package.loaded package.loadlib package.path package.preload");
+            
+            SetKeywords(1, "and break do else elseif end for function if in local nil not or repeat return then until while" + " false true" + " goto");
+            
+            SetKeywords(2, "assert collectgarbage dofile error _G getmetatable ipairs loadfile next pairs pcall print rawequal rawget rawset setmetatable tonumber tostring type _VERSION xpcall table math coroutine io os debug getfenv gcinfo load loadlib loadstring require select setfenv unpack _LOADED LUA_PATH _REQUIREDNAME package rawlen package bit32 utf8 _ENV");
+            
+            SetKeywords(3, "string.byte string.char string.dump string.find string.format string.gsub string.len string.lower string.rep string.sub string.upper table.concat table.insert table.remove table.sort math.abs math.acos math.asin math.atan math.atan2 math.ceil math.cos math.deg math.exp math.floor math.frexp math.ldexp math.log math.max math.min math.pi math.pow math.rad math.random math.randomseed math.sin math.sqrt math.tan string.gfind string.gmatch string.match string.reverse string.pack string.packsize string.unpack table.foreach table.foreachi table.getn table.setn table.maxn table.pack table.unpack table.move math.cosh math.fmod math.huge math.log10 math.modf math.mod math.sinh math.tanh math.maxinteger math.mininteger math.tointeger math.type math.ult" + " bit32.arshift bit32.band bit32.bnot bit32.bor bit32.btest bit32.bxor bit32.extract bit32.replace bit32.lrotate bit32.lshift bit32.rrotate bit32.rshift" + " utf8.char utf8.charpattern utf8.codes utf8.codepoint utf8.len utf8.offset");
+            
+            SetKeywords(4, "coroutine.create coroutine.resume coroutine.status coroutine.wrap coroutine.yield io.close io.flush io.input io.lines io.open io.output io.read io.tmpfile io.type io.write io.stdin io.stdout io.stderr os.clock os.date os.difftime os.execute os.exit os.getenv os.remove os.rename os.setlocale os.time os.tmpname" + " coroutine.isyieldable coroutine.running io.popen module package.loaders package.seeall package.config package.searchers package.searchpath require package.cpath package.loaded package.loadlib package.path package.preload");
 
             //SetKeywords(4, "");
             //SetKeywords(5, "local");
             //SetKeywords(6, "local");
             //SetKeywords(7, "local");
+
+            //_funcHighLightSelectedText = HightLightSelectedText;
+            //System.Timers.Timer timer = new System.Timers.Timer(500)
+            //{
+            //    AutoReset = true,
+            //};
+            //timer.Elapsed += (obj, args) =>
+            //{
+            //    Invoke(_funcHighLightSelectedText);
+            //};
+            //timer.Enabled = true;
         }
-        
+
+        //private Action _funcHighLightSelectedText = null;
+        //string _strPreviousSelect = "";
+        //private void HightLightSelectedText()
+        //{
+        //    if (_strPreviousSelect != SelectedText)
+        //    {
+        //        if (SelectedText != "")
+        //        {
+        //            var poses = _searchManager.MultiSearch(SelectedText);
+        //            base.ClearSelections();
+        //            foreach (var item in poses)
+        //            {
+        //                AddSelection(item, item + SelectedText.Length);
+        //            }
+        //        }
+        //        _strPreviousSelect = SelectedText;
+        //    }
+        //}
+
         /// <summary>
         /// the background color of the text area
         /// </summary>
@@ -347,18 +386,6 @@ namespace CodeEditorNet.Lua
         Keys[] _keysInUse = new Keys[] { Keys.Z, Keys.Y, Keys.C, Keys.X, Keys.V, Keys.A };
         private void InitHotkeys()
         {
-            // register the hotkeys with the form
-            //HotKeyManager.AddHotKey(this.ParentForm, OpenSearch, Keys.F, true);
-            //HotKeyManager.AddHotKey(this.ParentForm, OpenFindDialog, Keys.F, true, false, true);
-            //HotKeyManager.AddHotKey(this.ParentForm, OpenReplaceDialog, Keys.R, true);
-            //HotKeyManager.AddHotKey(this.ParentForm, OpenReplaceDialog, Keys.H, true);
-            //HotKeyManager.AddHotKey(base.FindForm, Uppercase, Keys.U, true);
-            //HotKeyManager.AddHotKey(ParentForm, Lowercase, Keys.L, true);
-            //HotKeyManager.AddHotKey(ParentForm, ZoomIn, Keys.Oemplus, true);
-            //HotKeyManager.AddHotKey(ParentForm, ZoomOut, Keys.OemMinus, true);
-            //HotKeyManager.AddHotKey(ParentForm, ZoomDefault, Keys.D0, true);
-            //HotKeyManager.AddHotKey(this.ParentForm, CloseSearch, Keys.Escape);
-
             // remove conflicting hotkeys from scintilla
             for (int i = 65; i <= 90; i++)
             {
@@ -369,18 +396,6 @@ namespace CodeEditorNet.Lua
                 }
             }
         }
-
-        //private void CloseSearch()
-        //{
-        //    if (SearchIsOpen)
-        //    {
-        //        SearchIsOpen = false;
-        //        InvokeIfNeeded(delegate () {
-        //            PanelSearch.Visible = false;
-        //            //CurBrowser.GetBrowser().StopFinding(true);
-        //        });
-        //    }
-        //}
 
         #region upper & lower
         public void Lowercase()
@@ -411,36 +426,27 @@ namespace CodeEditorNet.Lua
             SetSelection(start, end);
         }
         #endregion
-        
-        //bool SearchIsOpen = false;
-        //private void OpenSearch()
-        //{
-        //    SearchManager.SearchBox = TxtSearch;
-        //    SearchManager.TextArea = _editor;
 
-        //    if (!SearchIsOpen)
-        //    {
-        //        SearchIsOpen = true;
-        //        InvokeIfNeeded(delegate () {
-        //            PanelSearch.Visible = true;
-        //            TxtSearch.Text = SearchManager.LastSearch;
-        //            TxtSearch.Focus();
-        //            TxtSearch.SelectAll();
-        //        });
-        //    }
-        //    else
-        //    {
-        //        InvokeIfNeeded(delegate () {
-        //            TxtSearch.Focus();
-        //            TxtSearch.SelectAll();
-        //        });
-        //    }
-        //}
+        #region search && replace
+        public int Search(string text , bool positive)
+        {
+            return _searchManager.Search(text, positive);
+        }
 
-        //private void wordWrapItem_Click(object sender, EventArgs e)
-        //{
-        //    wordWrapItem.Checked = !wordWrapItem.Checked;
-        //    WrapMode = wordWrapItem.Checked ? WrapMode.Word : WrapMode.None;
-        //}
+        public int[] SearchMulti(string text)
+        {
+            return _searchManager.MultiSearch(text);
+        }
+
+        public int Replace(string strOld , string strNew , bool positive)
+        {
+            return _replaceManager.Replace(strOld, strNew, positive);
+        }
+
+        public void ReplaceMulti(string strOld, string strNew , bool replcaeSelected)
+        {
+            _replaceManager.ReplaceMulti(strOld, strNew, replcaeSelected);
+        }
+        #endregion
     }
 }

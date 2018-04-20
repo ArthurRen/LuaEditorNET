@@ -9,7 +9,6 @@ C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\obj\Debug\CodeEditorN
 C:\Users\RenAr\Documents\Porgram\LuaEditorNET\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.LuaEditor.resources
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\Debug\CodeEditorNet.Lua.dll
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\Debug\CodeEditorNet.Lua.pdb
-C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csprojResolveAssemblyReference.cache
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.LuaEditor.resources
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.csproj.GenerateResource.Cache
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\Debug\CodeEditorNet.Lua.dll
