@@ -49,6 +49,7 @@ namespace CodeEditorNet.Lua
                 else
                 {
                     _editor.SetSelection(pos, pos + text.Length);
+                    _editor.ScrollCaret();
                     _indexLastestSearch = pos + text.Length + 1;
                     if (_indexLastestSearch >= _editor.Text.Length)
                     {
@@ -73,6 +74,7 @@ namespace CodeEditorNet.Lua
                 else
                 {
                     _editor.SetSelection(pos, pos + text.Length);
+                    _editor.ScrollCaret();
                     _indexLastestSearch = pos - text.Length - 1;
                     if (_indexLastestSearch < 0)
                     {
@@ -88,7 +90,7 @@ namespace CodeEditorNet.Lua
         /// </summary>
         /// <param name="strSearch">需要搜索的字符串</param>
         /// <returns>搜索到的目标字符串的位置</returns>
-        public int[] MultiSearch(string strSearch)
+        public int[] SearchMulti(string strSearch)
         {
             _editor.MultipleSelection = true;
             var poses = System.Text.RegularExpressions.Regex.Matches(_editor.Text, strSearch).Cast<System.Text.RegularExpressions.Match>().Select(x => x.Index).ToArray();

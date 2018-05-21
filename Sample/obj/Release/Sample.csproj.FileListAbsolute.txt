@@ -1,0 +1,12 @@
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\obj\Release\Sample.csprojResolveAssemblyReference.cache
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\obj\Release\Sample.frmSample.resources
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\obj\Release\Sample.Properties.Resources.resources
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\obj\Release\Sample.csproj.GenerateResource.Cache
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\bin\Release\Sample.exe.config
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\bin\Release\Sample.exe
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\bin\Release\Sample.pdb
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\bin\Release\CodeEditorNet.Lua.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\bin\Release\ScintillaNET.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\bin\Release\CodeEditorNet.Lua.pdb
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\obj\Release\Sample.exe
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\Sample\obj\Release\Sample.pdb

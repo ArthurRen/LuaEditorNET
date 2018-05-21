@@ -1,3 +1,8 @@
-C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.csprojResolveAssemblyReference.cache
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.LuaEditor.resources
 C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.csproj.GenerateResource.Cache
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\x86\Debug\CodeEditorNet.Lua.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\x86\Debug\CodeEditorNet.Lua.pdb
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\x86\Debug\ScintillaNET.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.pdb
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Debug\CodeEditorNet.Lua.SearchPanel.resources

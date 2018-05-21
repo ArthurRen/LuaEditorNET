@@ -44,7 +44,6 @@ namespace CodeEditorNet.Lua
                 int start = _editor.SelectionStart;
                 string strReplaced = text.Replace(strOld, strNew);
                 _editor.ReplaceSelection(strReplaced);
-                _editor.SetSelection(start, start + strReplaced.Length);
                 MessageBox.Show("替换完成！");
             }
             else

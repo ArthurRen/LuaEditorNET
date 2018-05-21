@@ -1,0 +1,7 @@
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\x86\Release\CodeEditorNet.Lua.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\x86\Release\CodeEditorNet.Lua.pdb
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\bin\x86\Release\ScintillaNET.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Release\CodeEditorNet.Lua.LuaEditor.resources
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Release\CodeEditorNet.Lua.csproj.GenerateResource.Cache
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Release\CodeEditorNet.Lua.dll
+C:\Users\Arthur-Desktop\Documents\Program\LuaEditorNet\LuaEditorNET\obj\x86\Release\CodeEditorNet.Lua.pdb
